@@ -1,0 +1,94 @@
+Q1. What percentage of customers have fully paid their Loan Amount?
+Ans. 
+loan_status	proportion
+Fully Paid	80.444042
+Charged Off	19.555958
+The data clearly shows the 80%-20% split in loan status. 80% of customers have fully paid the Loan Amount.
+
+Q2. Comment about the correlation between Loan Amount and Installment features?
+Ans.           loan_amnt	installment
+loan_amnt	1.000000	0.954087
+installment	0.954087	1.000000
+we can see the correlation between Loan Amount and Installment. In this case, the correlation coefficient between 'loan_amnt' and 'installment' is quite high, approximately 0.95, indicating a strong positive linear relationship between these two variables.
+
+Q3. The majority of people have home ownership as _______?
+Ans. 
+home_ownership	proportion
+MORTGAGE	50.150279
+RENT	        40.348135
+OWN	        9.466093
+OTHER	        0.026431
+NONE	        0.007552
+ANY	        0.001510
+
+Mortgage holders comprise the majority with approximately 50.15%, indicating that a significant portion of individuals own homes through Mortgage agreements.
+Renters constitute a substantial portion, accounting for around 40.35% of home ownership types. This suggests a sizable demographic of individuals who opt for renting rather than owning a home.
+
+Q4. People with grades ‘A’ are more likely to fully pay their loan. (T/F)?
+Ans. 
+loan_status	Charged Off	Fully Paid
+grade		
+A	         0.063458	 0.936542
+B	         0.124441	 0.875559
+C	         0.210641	 0.789359
+D	         0.289372	 0.710628
+E	         0.371882	 0.628118
+F	         0.431806	 0.568194
+G	         0.452041	 0.547959
+Ans. True. Grade 'A' borrowers demonstrate a significantly high likelihood of fully repaying their loans, with approximately 93.65% of loans being fully paid. This suggests that borrowers with the highest credit rating are more inclined to fulfill their loan obligations successfully.
+
+Q5. Name the top 2 afforded job titles?
+Ans. 
+emp_title	  count/Loan Status
+Teacher	               1495
+Manager	               1432
+Registered Nurse	651
+Supervisor	        612
+RN	                611
+The Most afforded job titles are Teachers & Managers.
+
+Q6: Thinking from a bank's perspective, which metric should our primary focus be on..
+a. ROC AUC
+b. Precision
+c. Recall
+d. F1 Score
+
+Ans:
+
+From a bank's perspective, minimizing risks and maximizing profitability are paramount. ROC AUC (Receiver Operating Characteristic Area Under Curve) is indeed a crucial metric because it encompasses both True Positive Rate (TPR) and False Positive Rate (FPR)
+
+Bank's primary focus should be on ROC AUC , because bank needs to reduce FPR (False Positive Rate) and needs to increase the TPR (True Positive Rate).
+Maximizing TPR ensures that the bank correctly identifies customers who fully pay their loans (reducing False Negatives), while minimizing FPR ensures that the bank doesn't wrongly classify customers as fully paid when they're actually charged off (reducing False Positives).
+
+By optimizing ROC AUC, the bank can strike a balance between correctly identifying creditworthy customers and minimizing the risk of defaulters, thereby enhancing the overall performance and reliability of its credit scoring model.
+
+Another approach:
+since I'm having High Recall value of 100% in Regularized model(most efficient model):
+From a bank's perspective, the primary focus should be on minimizing risks while maximizing profitability. Therefore, the most relevant metric would be Precision.
+
+Precision represents the proportion of correctly predicted positive instances (e.g., customers who fully pay their loans) out of all instances predicted as positive. In the context of a bank, precision reflects the accuracy of identifying creditworthy customers who are likely to repay their loans. Maximizing precision ensures that the bank minimizes the number of false positives, which are instances where the bank incorrectly identifies customers as creditworthy when they are not. By prioritizing precision, the bank can reduce the risk of loan defaults and associated financial losses.
+
+While ROC AUC, Recall, and F1 Score are also important metrics, precision aligns closely with the bank's objective of minimizing risks and ensuring the quality of its loan portfolio.
+
+Q7. How does the gap in precision and recall affect the bank?
+Ans:
+
+To comprehend the errors made by a model, it's crucial to evaluate both false positives and false negatives, which are gauged through metrics like recall and precision. When recall is low, it poses a significant risk for the bank.
+So, the gap between precision and recall will affect the bank. As the gap widens, there will be increase in incorrect predictions.
+Good precision means less False Positives. i.e. Less NPA loan accounts.
+Good recall means less False Negatives. i.e. not loosing on good customer.
+
+
+Q8. Which were the features that heavily affected the outcome?
+Ans:
+
+Address(Zipcode), Annual_Income, Grade seems to be most important feature in our case.
+
+Loan duration term, Total Credit balance revol_bal, Monthly debt vs. monthly income ratio dti, Interest int_rate also has high weights(coeffients) in the model.
+
+
+Q9. Will the results be affected by geographical location? (Yes/No)
+Ans:
+
+Yes, we can see that zip_code (Address) is a very important feature so geographical location has impact on our result.
+
